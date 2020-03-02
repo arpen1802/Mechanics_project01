@@ -5,6 +5,7 @@ public class Main {
         Crossroad crossroad = new Crossroad(20, 4);
         for (double speed = 5.5; speed< 22.2; speed+=1.5){
             Car car = new Car(speed, 50, 2, 2);
+            time_distance(speed, car.getPositiveAcc());
             System.out.print("Initial speed is " + speed + ". ");
             checkStatus(car,crossroad, false);
         }
@@ -94,6 +95,12 @@ public class Main {
                 return;
             }
             t0+=1;
+        }
+    }
+     public static void time_distance(double speed, double acceleration){
+        for(int t = 1; t<= 10; t++){
+            double dist = speed*t + acceleration*t*t/2;
+            System.out.println("For t = " + t + ", distance  = "+ dist+".");
         }
     }
 }
